@@ -167,7 +167,12 @@ submit.addEventListener("click", function (e) {
 
     if (fnameCorrect == 0 || lnameCorrect == 0 || emailCorrect == 0 || passwordCorrect == 0 || passwordConfirmCorrect == 0 || termsCorrect == 0) {
         popupMusic.play();
-        alert("Fill all the details first before submitting");
+        fnameError.innerText = "Enter your first name";
+        lnameError.innerText = "Enter your last name";
+        emailError.innerText = "Enter your email name";
+        passwordError.innerText = "Enter your password name";
+        passwordConfirmError.innerText = "Enter your confirm password name";
+        termsError.innerText = "Accept terms & conditions";
     }
     else {
         alert("Form submitted and data successfully saved in localStorage");

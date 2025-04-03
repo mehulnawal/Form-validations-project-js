@@ -28,27 +28,29 @@ body {
     }
 }
 
-.password {
 
-    .password-main {
-        position: relative;
+.password-main,
+.forgetPasswordMain {
+    position: relative;
 
-        #eye-open,
-        #eye-open2,
-        #confirm-eye-open,
-        #confirm-eye-open2 {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 20px;
-            background-color: transparent !important;
-            cursor: pointer;
-        }
+    #eye-open,
+    #eye-open2,
+    #confirm-eye-open,
+    #forgetEyeOpen,
+    #forgetEyeOpen2,
+    #confirm-eye-open2 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        background-color: transparent !important;
+        cursor: pointer;
+    }
 
-        #eye-open2,
-        #confirm-eye-open2 {
-            display: none;
-        }
+    #eye-open2,
+    #confirm-eye-open2,
+    #forgetEyeOpen2 {
+        display: none;
     }
 }
 
@@ -66,5 +68,17 @@ body {
 }
 
 #bgMusic {
+    display: none;
+}
+
+#ideaMessage {
+    display: none;
+}
+
+#forgetPasswordPage {
+    display: none;
+}
+
+#warningMessage {
     display: none;
 }
