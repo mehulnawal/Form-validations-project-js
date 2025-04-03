@@ -1,0 +1,562 @@
+1. Functions - 
+    for, while, do-while
+
+    1. forEach() – Calls a function on each element (no return value).
+    let arr = [10, 20, 30];
+    arr.forEach(num => console.log(num));  // Output: 10, 20, 30
+
+    2. for...of – Best for looping through arrays directly.
+    let arr = [10, 20, 30];
+    for (let num of arr) {
+    console.log(num);
+    }
+    // Output: 10, 20, 30
+
+    3. for...in – Loops through the indexes of an array (not recommended for arrays).
+    let arr = [10, 20, 30];
+    for (let index in arr) {
+    console.log(index, arr[index]);  
+    }
+    // Output:
+    // 0 10
+    // 1 20
+    // 2 30
+
+    4. map() – Creates a new array by modifying each element.
+    let arr = [10, 20, 30];
+    let doubled = arr.map(num => num * 2);
+    console.log(doubled);  
+    // Output: [20, 40, 60]
+
+    5. Filter() – Returns a new array with elements that pass a condition.
+    let arr = [10, 20, 30, 40];
+    let filtered = arr.filter(num => num > 20);
+    console.log(filtered);  
+    // Output: [30, 40]
+
+    6. reduce() – Reduces an array to a single value.
+    let arr = [10, 20, 30];
+    let sum = arr.reduce((acc, num) => acc + num, 0);
+    console.log(sum);  
+    // Output: 60
+
+    7. some() – Checks if at least one element meets a condition (true/false).
+    let arr = [10, 20, 30];
+    console.log(arr.some(num => num > 25));  
+    // Output: true
+
+    8. every() – Checks if all elements meet a condition (true/false).
+    let arr = [10, 20, 30];
+    console.log(arr.every(num => num > 5));  
+    // Output: true
+
+2. Objects - 
+
+    Objects are mutable
+
+    Accessing Objects - 
+    objectName.propertyName
+    objectName["propertyName"]
+
+    1. Add new properties - 
+    You can add new properties to an existing object by simply giving it a value:
+    person.nationality = "English";
+
+    2. The delete keyword deletes a property from an object. It delete both property and its value - 
+    delete person.age;
+
+    3. Object.values() creates an array from the property values:
+    const myArray = Object.values(person);
+
+    4. Object.keys() method Returns an array of all keys in an object.
+
+    5. Object.assign() method copies properties from one or more source objects to a target object :
+    Object.assign(target, source(s))
+
+    6. Object.entries() is a method that helps you get both keys and values from an object in the form of an array.It converts the object into an array of key-value pairs.Each pair is stored as a small array ([key, value]).
+    console.log(Object.entries(user));
+
+    7. Object.freeze() method prevents any changes to an object:
+    Object.freeze(objectName)
+
+    8. Object.seal() method Prevents adding or deleting properties, but allows modification of existing properties.
+    Object.seal(obj);
+    obj.name = "Mike";  // ✅ Allowed
+    obj.age = 30;  // ❌ Not allowed
+
+    9. Object.hasOwnProperty() method Checks if an object has a specific key (property).
+    console.log(user.hasOwnProperty("name"));  
+    // Output: true
+
+    10. Object.fromEntries() method Converts an array of key-value pairs back into an object.
+    const arr = [["name", "Alice"], ["age", 25]];
+    const obj = Object.fromEntries(arr);
+    console.log(obj);  
+    // Output: { name: "Alice", age: 25 }
+
+3. Strings - 
+
+    Javascript strings are primitive and immutable
+
+    1. Escape Characters - 
+        \'	Single quote
+        \"	Double quote
+        \\	Backslash
+        \b	Backspace
+        \n	New Line
+
+    2. length - Returns the length (number of characters) of a string.
+
+    3. toUpperCase() - Converts a string to uppercase.
+    
+    4. toLowerCase() - Converts a string to lowercase.
+
+    5. trim() - Removes spaces from the start and end of a string.
+
+    6. charAt(index) - Returns the character at a given index.
+    console.log("hello".charAt(1));  
+
+    7. indexOf(substring) - Returns the first position of a substring, or -1 if not found.
+    console.log("hello world".indexOf("world"));   // Output: 6
+
+    8. includes(substring) - Checks if a string contains a given substring (true or false).
+    console.log("hello world".includes("world"));  // Output: true
+
+    9. startsWith(substring) - Checks if a string starts with a given substring.
+    console.log("hello world".startsWith("hello"));  // Output: true
+
+    10.  endsWith(substring) - Checks if a string ends with a given substring.
+    console.log("hello world".endsWith("world"));  // Output: true
+
+    11. substring(start, end) - Similar to slice(), but doesn’t allow negative indexes.
+    console.log("hello world".substring(0, 5));  // Output: "hello"
+
+    12. replace(old, new) - Replaces the first occurrence of old with new.
+    console.log("hello world".replace("world", "JS"));  // Output: "hello JS"
+
+    13. replaceAll(old, new) - Replaces all occurrences of old with new.
+    console.log("apple apple".replaceAll("apple", "banana"));  // Output: "banana banana"
+
+    14. split(separator) - Splits a string into an array based on a separator.
+    console.log("hello world".split(" "));  // Output: ["hello", "world"]
+
+    15. repeat(count) - Repeats a string count times.
+    console.log("hi ".repeat(3));  // Output: "hi hi hi "
+
+    16. concat(string1, string2, ...) - Joins multiple strings together.
+    console.log("Hello".concat(" ", "World"));  // Output: "Hello World"
+
+    17.  charCodeAt(index) - Returns the Unicode value of a character at a given position.
+    console.log("A".charCodeAt(0));  // Output: 65
+
+    18. padStart(length, char) - Adds characters at the beginning of the string to make it the specified length.
+    console.log("5".padStart(3, "0"));  // Output: "005"
+    padStart(3, "0") means "make it 3 characters long by adding 0s at the beginning
+
+    19. padEnd(length, char) -  Adds characters at the end of the string to make it the specified length.
+    console.log("5".padEnd(3, "0"));  // Output: "500"
+    padEnd(3, "0") means "make it 3 characters long by adding 0s at the end."
+
+4. Array - 
+    const array_name = [item1, item2, ...];      
+
+    🔹 Basic Methods
+
+    push(element) - Adds an element to the end of an array.
+    let arr = [1, 2, 3];
+    arr.push(4);
+    console.log(arr);  // Output: [1, 2, 3, 4]
+
+    pop() - Removes the last element from an array and returns it.
+    let arr = [1, 2, 3];
+    console.log(arr.pop());  // Output: 3
+    console.log(arr);  // Output: [1, 2]
+
+    unshift(element) - Adds an element to the beginning of an array.
+    arr.unshift(1);
+    console.log(arr);  // Output: [1, 2, 3]
+
+    shift() - Removes the first element from an array and returns it.
+    let arr = [1, 2, 3];
+    console.log(arr.shift());  // Output: 1
+    console.log(arr);  // Output: [2, 3]
+
+    🔹 Checking & Finding Methods
+    includes(element) - Checks if an array contains a given element (true or false).
+    console.log(arr.includes(2));  // Output: true
+    console.log(arr.includes(5));  // Output: false
+
+    indexOf(element) - Returns the index of the first occurrence of an element (or -1 if not found).
+    let arr = [10, 20, 30];
+    console.log(arr.indexOf(20));  // Output: 1
+    console.log(arr.indexOf(50));  // Output: -1
+
+
+    🔹 Sorting & Reversing Methods
+    sort() - Sorts an array (mutates the original array).
+    arr.sort();
+    console.log(arr);  // Output: [10, 20, 30, 40]
+
+    reverse() - Reverses the order of an array (mutates the original array).
+    let arr = [1, 2, 3];
+    arr.reverse();
+    console.log(arr);  // Output: [3, 2, 1]
+
+    🔹 Splicing & Slicing Methods
+    slice(start, end) - Returns a new array containing a portion of the original array.
+    dit
+    let arr = [10, 20, 30, 40, 50];
+    console.log(arr.slice(1, 4));  // Output: [20, 30, 40]
+
+    splice(start, deleteCount, item1, item2, ...) - Removes or replaces elements in the original array.
+    let arr = [1, 2, 3, 4];
+    arr.splice(1, 2, 10, 20);
+    console.log(arr);  // Output: [1, 10, 20, 4]
+
+    🔹 Joining & Splitting Methods
+    join(separator) - Converts an array into a string, separated by the given separator.
+    let arr = ["apple", "banana", "cherry"];
+    console.log(arr.join(" - "));  // Output: "apple - banana - cherry"
+
+    split(separator) - Converts a string into an array (opposite of join()).
+    Edit
+    let str = "apple,banana,cherry";
+    console.log(str.split(","));  // Output: ["apple", "banana", "cherry"]
+
+    🔹 Combining & Checking Methods
+    concat(array1, array2, ...) - Merges two or more arrays into a new array.
+    let arr1 = [1, 2];
+    let arr2 = [3, 4];
+    console.log(arr1.concat(arr2));  // Output: [1, 2, 3, 4]
+
+    every(callback) - Checks if all elements pass a condition (true or false).
+    let arr = [10, 20, 30];
+    console.log(arr.every(num => num > 5));  // Output: true
+
+    some(callback) - Checks if at least one element passes a condition (true or false).
+    console.log(arr.some(num => num > 25));  // Output: true
+
+5. Traversing - 
+
+    Parent Traversal (Moving Up)
+    These methods allow you to move from a child element to its parent.
+
+    ✅ parentElement – Gets the direct parent of an element.
+    let child = document.querySelector(".child");
+    console.log(child.parentElement);  
+    // Output: Parent element of `.child`
+    🔹 If there's no parent (e.g., document), it returns null.
+
+    ✅ closest(selector) – Finds the nearest ancestor matching the selector.
+    let element = document.querySelector(".child");
+    console.log(element.closest(".container"));  
+    // Output: Nearest `.container` parent
+    🔹 Useful when searching for a specific parent up the hierarchy.
+
+    2️⃣ Child Traversal (Moving Down)
+    These methods allow you to access child elements.
+
+    ✅ children – Returns all child elements (excluding text and comments).
+    let parent = document.querySelector(".parent");
+    console.log(parent.children);  
+    // Output: HTMLCollection of all child elements
+
+    ✅ firstElementChild – Gets the first child element.
+    console.log(parent.firstElementChild);  
+    // Output: First child element of `.parent`
+
+    ✅ lastElementChild – Gets the last child element.
+    console.log(parent.lastElementChild);  
+    // Output: Last child element of `.parent`
+
+    ✅ childNodes – Returns all child nodes (including text, comments, etc.).
+    console.log(parent.childNodes);  
+    // Output: NodeList (contains elements, text, comments)
+    🔹 Use .children instead if you only want elements.
+
+    3️⃣ Sibling Traversal (Moving Sideways)
+    These methods allow you to navigate between adjacent elements.
+
+    ✅ nextElementSibling – Gets the next sibling element.
+    let element = document.querySelector(".child");
+    console.log(element.nextElementSibling);  
+    // Output: Next sibling element
+
+    ✅ previousElementSibling – Gets the previous sibling element.
+    console.log(element.previousElementSibling);  
+    // Output: Previous sibling element
+
+    ✅ nextSibling & previousSibling – Gets any sibling (including text nodes, comments, etc.)
+    console.log(element.nextSibling);  
+    // Output: Next node (could be text, comment, or element)
+    console.log(element.previousSibling);  
+    // Output: Previous node
+    🔹 Use nextElementSibling and previousElementSibling to get only elements.
+
+6. DOM - 
+    
+    Useful DOM Methods in JavaScript
+    DOM (Document Object Model) methods allow you to select, modify, and interact with HTML elements. Below is a list of the most useful DOM methods with simple explanations and examples.
+
+    📌 1. Selecting Elements
+    These methods help in finding HTML elements.
+
+    ✅ getElementById(id) – Selects an element by its ID.
+    let title = document.getElementById("main-title");
+    console.log(title);  
+    // Output: <h1 id="main-title">Hello</h1>
+
+    ✅ getElementsByClassName(className) – Selects all elements with a given class (returns HTMLCollection).
+    let items = document.getElementsByClassName("item");
+    console.log(items[0]);  
+    // Output: First element with class "item"
+
+    ✅ getElementsByTagName(tagName) – Selects all elements with a given tag (returns HTMLCollection).
+    let paragraphs = document.getElementsByTagName("p");
+    console.log(paragraphs[0]);  
+    // Output: First <p> element
+
+    ✅ querySelector(selector) – Selects the first matching element (more flexible than getElementById).
+    let firstItem = document.querySelector(".item");
+    console.log(firstItem);  
+    // Output: First element with class "item"
+
+    ✅ querySelectorAll(selector) – Selects all matching elements (returns NodeList).
+    let allItems = document.querySelectorAll(".item");
+    console.log(allItems);  
+    // Output: NodeList of all elements with class "item"
+
+    🎨 2. Modifying Elements
+    These methods change the content, attributes, or styles of elements.
+
+    ✅ element.textContent – Changes the text inside an element.
+    Returns the text content of all elements, including <script> and <style> elements, and hidden elements (elements with display: none; or visibility: hidden;).
+    let heading = document.querySelector("h1");
+    heading.textContent = "New Heading";
+
+    ✅ element.innerText – Changes the text inside an element.
+    Returns only the human-readable text content, ignoring <script> and <style> elements, and hidden elements.
+    let heading = document.querySelector("h1");
+    heading.textContent = "New Heading";
+
+    ✅ element.innerHTML – Changes the HTML inside an element.
+    let div = document.querySelector(".container");
+    div.innerHTML = "<p>New paragraph</p>";
+
+    ✅ element.setAttribute(attr, value) – Sets an attribute (e.g., href, src, id).
+    let link = document.querySelector("a");
+    link.setAttribute("href", "https://google.com");
+
+    ✅ element.getAttribute(attr) – Gets the value of an attribute.
+    console.log(link.getAttribute("href"));  
+    // Output: "https://google.com"
+
+    ✅ element.style.property – Changes the CSS style of an element.
+    let box = document.querySelector(".box");
+    box.style.backgroundColor = "red";
+    
+    🎭 3. Creating & Removing Elements
+    These methods allow you to create, insert, and remove elements.
+
+    ✅ document.createElement(tagName) – Creates a new element.
+    let newDiv = document.createElement("div");
+    newDiv.textContent = "I am a new div";
+    
+    ✅ parent.appendChild(child) – Adds an element at the end.
+    document.body.appendChild(newDiv);
+    
+    ✅ parent.insertBefore(newElement, existingElement) – Inserts an element before another element.
+    let reference = document.querySelector("p");
+    document.body.insertBefore(newDiv, reference);
+    
+    ✅ parent.removeChild(child) – Removes a child element.
+    document.body.removeChild(newDiv);
+    
+    ✅ element.remove() – Removes an element directly.
+    let button = document.querySelector("button");
+    button.remove();
+    
+    🔄 4. Event Handling
+    Events allow interaction with user actions (click, hover, etc.).
+
+    ✅ element.addEventListener(event, callback) – Adds an event listener to an element.
+    let btn = document.querySelector("button");
+    btn.addEventListener("click", function () {
+    alert("Button Clicked!");
+    });
+    
+    ✅ element.removeEventListener(event, callback) – Removes an event listener.
+    function sayHello() {
+    alert("Hello!");
+    }
+    btn.addEventListener("click", sayHello);
+    btn.removeEventListener("click", sayHello);
+
+    
+    🎯 6. Class  Manipulation
+
+    ✅ element.classList.add(className) – Adds a class.
+    let box = document.querySelector(".box");
+    box.classList.add("active");
+
+    ✅ element.classList.remove(className) – Removes a class.
+    box.classList.remove("active");
+
+    ✅ element.classList.toggle(className) – Adds/removes a class (toggle effect).
+    box.classList.toggle("hidden");
+
+    ✅ element.classList.contains(className) – Checks if an element has a class (true/false).
+    console.log(box.classList.contains("active"));
+
+7. Date - 
+
+    Date Methods (Working with Dates & Time)
+
+    ✅ new Date() – Creates a new date object with the current date & time.
+    let now = new Date();
+    console.log(now);  
+    // Output: Current date & time
+
+    ✅ getFullYear() – Returns the year (4-digit format).
+    let date = new Date();
+    console.log(date.getFullYear());  
+    // Output: 2025
+
+    ✅ getMonth() – Returns the month (0-11) (0 = January, 11 = December).
+    console.log(date.getMonth());  
+    // Output: 3 (April)
+
+    ✅ getDate() – Returns the day of the month (1-31).
+    console.log(date.getDate());  
+    // Output: 2
+
+    ✅ getDay() – Returns the weekday (0-6) (0 = Sunday, 6 = Saturday).
+    console.log(date.getDay());  
+    // Output: 2 (Tuesday)
+
+    ✅ getHours() – Returns the hour (0-23).
+    console.log(date.getHours());  
+    // Output: 14 (2 PM)
+
+    ✅ getMinutes() – Returns the minutes (0-59).
+    console.log(date.getMinutes());  
+    // Output: 45
+
+    ✅ getSeconds() – Returns the seconds (0-59).
+    console.log(date.getSeconds());  
+    // Output: 30
+
+    ✅ setFullYear(year) – Sets a new year for the date.
+    date.setFullYear(2030);
+    console.log(date);  
+    // Output: Date updated to 2030
+
+    ✅ setMonth(month) – Sets a new month (0-11).
+    date.setMonth(5);
+    console.log(date);  
+    // Output: Date updated to June
+
+    ✅ setDate(day) – Sets a new day of the month (1-31).
+    date.setDate(15);
+    console.log(date);  
+    // Output: Date updated to the 15th
+
+    ✅ toDateString() – Returns a short date string.
+    console.log(date.toDateString());  
+    // Output: "Tue Apr 02 2025"
+
+    ✅ toLocaleString() – Returns a formatted date & time string.
+    console.log(date.toLocaleString());  
+    // Output: "4/2/2025, 2:45:30 PM"
+
+8. maths -  
+
+    Math Methods (Performing Calculations)
+
+    ✅ Math.abs(number) – Returns the absolute value (positive version).
+    console.log(Math.abs(-10));  
+    // Output: 10
+
+    ✅ Math.round(number) – Rounds to the nearest whole number.
+    console.log(Math.round(4.6));  
+    // Output: 5
+
+    ✅ Math.floor(number) – Rounds down to the nearest whole number.
+    console.log(Math.floor(4.9));  
+    // Output: 4
+
+    ✅ Math.ceil(number) – Rounds up to the nearest whole number.
+    console.log(Math.ceil(4.1));  
+    // Output: 5
+
+    ✅ Math.trunc(number) – Removes decimal places (keeps only the integer part).
+    console.log(Math.trunc(4.9));  
+    // Output: 4
+
+    ✅ Math.max(a, b, c, ...) – Returns the largest number.
+    console.log(Math.max(10, 20, 5));  
+    // Output: 20
+
+    ✅ Math.min(a, b, c, ...) – Returns the smallest number.
+    console.log(Math.min(10, 20, 5));  
+    // Output: 5
+
+    ✅ Math.pow(base, exponent) – Raises a number to a power (x^y).
+    console.log(Math.pow(2, 3));  
+    // Output: 8 (2³)
+
+    ✅ Math.sqrt(number) – Returns the square root.
+    console.log(Math.sqrt(25));  
+    // Output: 5
+
+    ✅ Math.random() – Returns a random number between 0 and 1.
+    console.log(Math.random());  
+    // Output: Random value like 0.6745
+
+    ✅ Math.floor(Math.random() * max) – Returns a random whole number (0 to max-1).
+    Edit
+    console.log(Math.floor(Math.random() * 10));  
+    // Output: Random number between 0-9
+
+9. Localstorage - 
+    LocalStorage in JavaScript
+    LocalStorage is a built-in feature in JavaScript that allows you to store data in the browser. The data stays even after the page is refreshed or the browser is closed.
+
+    📌 Key Features:
+    ✔ Stores data permanently (until manually deleted).
+    ✔ Stores data as key-value pairs.
+    ✔ Can only store strings (needs conversion for objects/arrays).
+    ✔ Data is accessible only from the same domain.
+
+    🛠️ LocalStorage Methods (CRUD Operations)
+    
+    ✅ localStorage.setItem(key, value) – Stores data
+    localStorage.setItem("name", "John");
+    📌 Stores "John" with the key "name".
+
+    ✅ localStorage.getItem(key) – Retrieves data
+    let name = localStorage.getItem("name");
+    console.log(name);  
+    // Output: "John"
+
+    ✅ localStorage.removeItem(key) – Removes a specific item
+    localStorage.removeItem("name");
+
+    ✅ localStorage.clear() – Removes all stored data
+    localStorage.clear();
+    
+    
+    📝 Storing & Retrieving Objects in LocalStorage
+    Since LocalStorage only supports strings, we need JSON.stringify() and JSON.parse() for objects/arrays.
+
+    ✅ Storing an Object
+    let user = { name: "John", age: 25 };
+    localStorage.setItem("user", JSON.stringify(user));
+
+    ✅ Retrieving an Object
+    let userData = JSON.parse(localStorage.getItem("user"));
+    console.log(userData.name);  
+    // Output: "John"
+
+9. RegExp 
+10. sessionStorage
